@@ -61,15 +61,15 @@ while True:
     paises = []
     for info in elements:
         data = info.find_all('td')
-        paises.append([data[1].get_text().replace('\n', ''), data[2].get_text(), data[4].get_text(), data[7].get_text()])
+        paises.append([data[1].get_text().replace('\n', ''), data[2].get_text(), data[4].get_text(), data[7].get_text(), data[6].get_text(), data[11].get_text()])
     print('+ [OK]: Novos dados obtidos com sucesso.')
     print('+----------------------------------------------------------+')
     print('+ [!]: Atualizando banco de dados...')
-    sql = "UPDATE status SET curados = %s, total_casos = %s, total_mortes = %s WHERE pais = %s"
+    sql = "UPDATE status SET curados = %s, total_casos = %s, total_mortes = %s, casos_ativos = %s, testes = %s WHERE pais = %s"
     for i in range(len(paises)):
         for j in range(len(paises[i])):
             pass
-        val = (paises[i][3].replace(',', ''), paises[i][1].replace(',', ''), paises[i][2].replace(',', ''), paises[i][0])
+        val = (paises[i][3].replace(',', ''), paises[i][1].replace(',', ''), paises[i][2].replace(',', ''), paises[i][4].replace(',', ''), paises[i][5].replace(',', ''), paises[i][0])
         mycursor.execute(sql, val)
         mydb.commit()
     print('+ [OK]: Banco de dados atualizado com sucesso.')

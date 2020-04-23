@@ -28,6 +28,12 @@ public class Status {
 	@Column(name = "curados")
 	private int curados;
 	
+	@Column(name = "casos_ativos")
+	private int casosAtivos;
+	
+	@Column(name = "testes")
+	private int testes;
+	
 	@Column(name = "pais")
 	//@JsonIgnore
 	private String pais;
@@ -71,5 +77,21 @@ public class Status {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	
+
+	public int getCasosAtivos() {
+		return casosAtivos;
+	}
+
+	public void setCasosAtivos(int casosAtivos) {
+		this.casosAtivos = casosAtivos;
+	}
+
+	public int getTestes() {
+		return testes;
+	}
+
+	public void setTestes(int testes) {
+		this.testes = testes;
+	}
+
 }
